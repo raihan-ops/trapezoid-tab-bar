@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+App{
+  position: relative;
+  left:10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav.tabNav {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  margin: 0px 8%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+nav.tabNav a.tabHdr {
+  position: relative;
+  display: inline-block;
+  font-size: 105%;
+  padding: 1% 2%;
+  margin: 0 -0.5%;
+  color: #484848;
+  text-decoration: none;
 }
-
-.App-link {
-  color: #61dafb;
+nav.tabNav a.tabHdr:hover {
+  text-decoration: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav.tabNav a.tabHdr::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0.25em;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: perspective(15px) rotateX(5deg);
+  -moz-transform: perspective(15px) rotateX(5deg);
+  transform: perspective(15px) rotateX(12deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform-origin: bottom;
+  transform-origin: bottom;
+  background-color: #eaeaea;
+  border: 1px solid #c4c4c4;
+  border-bottom: none;
+}
+nav.tabNav a.tabHdr.selected {
+  color: #222222;
+  font-weight: 600;
+  z-index: 2;
+}
+nav.tabNav a.tabHdr.selected::before {
+  background-color: #f1f1f1;
+  border-bottom: none;
+  z-index: -1;
+}
+.tabContent {
+  font-size: 95%;
+  position: relative;
+  top: -5px;
+  border: 1px solid #c4c4c4;
+  background-color: #f1f1f1;
+  padding: 1%;
+  width: 95%;
+  margin: 0 auto;
+  height: 75vh;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/*.tabContent{*/
+/*  display: none;*/
+/*}*/
+div[id^='tab']:target{
+  display: block;
 }
